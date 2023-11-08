@@ -1,17 +1,19 @@
-// we must set a OPENAI_API_KEY env at vercel
+import { Configuration, OpenAIApi } from "openai-edge";
+import { OpenAIStream, StreamingTextResponse } from "ai";
 
-import OpenAI from "openai";
+const config = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+const openai = new OpenAIApi(config);
 
-const openai = new OpenAI();
+export const runtime = "edge";
 
-export const config = {
-  runtime: "experimental-edge",
-};
+export async function POST(req) {
+  let { prompt: content } = await req.json();
 
-export default async (request) => {
-  console.log("Calling OpenAI...", request.body); // not sure if it comes in as json or string
+  console.log("Calling OpenAI...", content);
 
-  const completion = await openai.chat.completions.create({
+  const response = await openai.createChatCompletion({
     messages: [
       {
         role: "system",
@@ -24,12 +26,12 @@ export default async (request) => {
         content:
           "Use this event log to construct a short (less than 150 words), funny story of the evening's proceedings in chronological order",
       },
-      { role: "user", content: prompt },
+      { role: "user", content: content },
     ],
+    stream: true,
     model: "gpt-4-1106-preview",
   });
 
-  return new Response(completion, {
-    status: 200,
-  });
+  const stream = OpenAIStream(response);
+  return new StreamingTextResponse(stream);
 };

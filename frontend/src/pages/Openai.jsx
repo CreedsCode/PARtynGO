@@ -1,11 +1,7 @@
+// Must pass OPENAI_API_KEY as an environment variable
+// Key shared on Telegram
+
 import React, { useState } from "react";
-
-import OpenAI from "openai";
-
-const openai = new OpenAI({
-  apiKey: "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",
-  dangerouslyAllowBrowser: true, // just for testing
-});
 
 export default function OpenAIExample() {
   const [processing, setProcessing] = useState(false);
@@ -15,29 +11,10 @@ export default function OpenAIExample() {
   const [response, setResponse] = useState(null);
 
   async function generateText() {
-    console.log("Calling OpenAI...");
-    setProcessing(true);
-    const completion = await openai.chat.completions.create({
-      messages: [
-        {
-          role: "system",
-          content:
-            "You are a fun, hilarious storyteller that knows how to speak to teenagers and GenZ. The following event log tells the story of a group of friends having a night out. The event log is in CSV format. The columns are:",
-        },
-        { role: "system", content: "Time,Person,Event" },
-        {
-          role: "system",
-          content:
-            "Use this event log to construct a short (less than 150 words), funny story of the evening's proceedings in chronological order",
-        },
-        { role: "user", content: prompt },
-      ],
-      model: "gpt-4-1106-preview",
+    const response = await fetch("/api/openai", {
+      method: "POST",
+      body: JSON.stringify({ prompt: prompt }), // there is probably a better way to do this
     });
-    console.log(completion);
-
-    setProcessing(false);
-    setResponse(completion);
   }
 
   return (

@@ -34,23 +34,26 @@ export default function Login() {
             <p>You are logged in!</p>
           ) : (
             <div>
-              <h2>Login</h2>
-              <div>
+              <div className="my-8 grid grid-cols-2 grid-rows-2 gap-4">
                 <label>Username:</label>
                 <input
                   type="text"
                   value={loginUsername}
                   onChange={(e) => setLoginUsername(e.target.value)}
+                  className="bg-white/30 text-white w-full rounded px-3 py-1"
+                  placeholder="username"
                 />
-              </div>
-              <div>
+
                 <label>Password:</label>
                 <input
                   type="password"
                   value={loginPassword}
                   onChange={(e) => setLoginPassword(e.target.value)}
+                  className="bg-white/30 text-white w-full rounded px-3 py-1"
+                  placeholder="password"
                 />
               </div>
+
               <button onClick={handleLogin}>Login</button>
             </div>
           )}

@@ -36,6 +36,10 @@
   right: 0;
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(10px);
+  animation-name: colorChange;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
 /* Animation */
@@ -86,5 +90,16 @@
   75% {
     border-radius: 78% 98% 100% 73% / 75% 76% 100% 91%;
     transform: translate(3.5em, 2em) rotate(0) scale(1.875, 1.875);
+  }
+}
+@keyframes colorChange {
+  0% {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  50% {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.8);
   }
 }

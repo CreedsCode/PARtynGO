@@ -12,7 +12,7 @@ export default function CreateGame() {
   return (
     <>
       <Header />
-      <div className="container mx-auto px-2">
+      <div className="container mx-auto px-3">
         <h1 className="mt-3">CREATE GAME</h1>
 
         <div className="max-w-4xl w-full mt-10 rounded-2xl bg-white/10 backdrop-blur-2xl p-4">

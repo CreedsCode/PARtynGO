@@ -1,6 +1,6 @@
 import "./Background.css";
 
-export default function Header({ size = 150 }) {
+export default function Header({ size = 130 }) {
   return (
     <>
       <div className="bm-pl">
@@ -14,7 +14,7 @@ export default function Header({ size = 150 }) {
           <img
             src="/logo-pink.png"
             alt="logo"
-            className="logo"
+            className="logo my-8"
             width={size}
             height={size}
           />

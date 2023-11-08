@@ -4,10 +4,15 @@ import Header from "../components/Header";
 function Home() {
   return (
     <>
-      <Header size={300} />
+      <Header size={200} />
+
+      <br />
+      <br />
 
       <h1>welcome</h1>
 
+      <br />
+      <br />
       <br />
       <br />
 

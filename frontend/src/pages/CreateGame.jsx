@@ -25,7 +25,7 @@ export default function CreateGame() {
               placeholder="Name"
               value={gameName}
               onChange={handleChange}
-              className="bg-white/30 font-bold rounded-xl p-2 w-full mr-5 px-3"
+              className="bg-white/30 font-bold rounded-xl p-2 w-full mr-3 px-3"
             />
             <button className="text-white">create</button>
           </div>

@@ -14,7 +14,6 @@ import JoinGame from "./pages/JoinGame";
 import GameStart from "./pages/GameStart";
 import GameRunning from "./pages/GameRunning";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -53,17 +52,9 @@ const router = createBrowserRouter([
     element: <GameStart />,
   },
   {
-    path: "/gameRunning",
+    path: "/game/:gameID",
     element: <GameRunning />,
   },
- 
- 
- 
- 
- 
- 
- 
-
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

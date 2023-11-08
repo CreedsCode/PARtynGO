@@ -1,0 +1,6 @@
+{
+  "/page": "app/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/hello-components/page": "app/hello-components/page.js",
+  "/hello-near/page": "app/hello-near/page.js"
+}

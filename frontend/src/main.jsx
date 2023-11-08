@@ -1,10 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
 import NoPage from "./pages/NoPage";
 import Testing from "./pages/Testing";
+import OpenAI from "./pages/Openai";
+
+import "./index.css";
 import Login from "./pages/Login";
 import StartAfterLogin from "./pages/StartAfterLogin";
 import CreateGame from "./pages/CreateGame";
@@ -25,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "/testing",
     element: <Testing />,
+  },
+  {
+    path: "/openai",
+    element: <OpenAI />,
   },
   {
     path: "/login",

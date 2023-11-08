@@ -9,7 +9,7 @@ export default function Header() {
         <div className="bm-pl__blob bm-pl__blob--b"></div>
       </div>
       <div className="bm-overlay"></div>
-      <div className="container mx-auto px-2 w-full">
+      <div className="container mx-auto px-2 w-full flex flex-col items-center">
         <a href="/" alt="Homepage">
           <img
             src="/logo-pink.png"

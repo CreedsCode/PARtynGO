@@ -2,19 +2,20 @@
 // Key shared on Telegram
 
 import React, { useState } from "react";
+import { useCompletion } from "ai/react";
 
 export default function OpenAIExample() {
   const [processing, setProcessing] = useState(false);
   const [prompt, setPrompt] = useState(
     `22:10,Der_CEO,Decided to pull an all-nighter\n23:15,Seppe,Kissed a Brazilian girl\n23:48,Daniel,Bought another round\n01:21,Owen,Left the club\n05:45,Olivier,Went home to check on his van`
   );
-  const [response, setResponse] = useState(null);
+
+  const { complete, completion, isLoading, stop } = useCompletion({
+    api: "/api/openai",
+  });
 
   async function generateText() {
-    const response = await fetch("/api/openai", {
-      method: "POST",
-      body: JSON.stringify({ prompt: prompt }), // there is probably a better way to do this
-    });
+    complete(prompt);
   }
 
   return (
@@ -40,11 +41,7 @@ export default function OpenAIExample() {
       <br />
       <br />
 
-      {response ? <ShowResponse response={response} /> : null}
+      <div className="w-1/3">{completion}</div>
     </div>
   );
-}
-
-function ShowResponse({ response }) {
-  return <div className="w-1/3">{response.choices[0].message.content}</div>;
 }

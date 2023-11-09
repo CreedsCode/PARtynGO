@@ -13,6 +13,7 @@ import CreateGame from "./pages/CreateGame";
 import JoinGame from "./pages/JoinGame";
 import GameStart from "./pages/GameStart";
 import GameRunning from "./pages/GameRunning";
+import Lobby from "./pages/Lobby";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
     element: <CreateGame />,
   },
   {
+    path: "/Lobby",
+    element: <Lobby />,
+  },
+  {
     path: "/joinGame",
     element: <JoinGame />,
   },
@@ -54,6 +59,11 @@ const router = createBrowserRouter([
   {
     path: "/game/:gameID",
     element: <GameRunning />,
+  },
+  {
+    path: "/game/:gameID",
+    element: <GameRunning />,
+  
   },
 ]);
 

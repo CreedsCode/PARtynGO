@@ -21,7 +21,7 @@ export default function Home() {
         <a href="/game">
           <h2>start new game</h2>
         </a>
-        <a href="/JoinGame">
+        <a href="/game/join">
           <h2 className="mt-10">join existing game</h2>
         </a>
       </div>

@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+"use client";
 
-import Header from "../components/Header";
+import React, { useState } from "react";
+
+import Header from "@/components/Header";
 
 export default function JoinGame() {
   const [gameCode, setGameCode] = useState(""); // Use gameCode state to store the entered game code
@@ -39,7 +40,6 @@ export default function JoinGame() {
             <button className="text-white" onClick={handleJoin}>
               Join
             </button>
-
           </div>
         </div>
       </div>

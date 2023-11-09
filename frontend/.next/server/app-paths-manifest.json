@@ -1,5 +1,12 @@
 {
+<<<<<<< Updated upstream
   "/hello-components/page": "app/hello-components/page.js",
   "/hello-near/page": "app/hello-near/page.js",
   "/page": "app/page.js"
+=======
+  "/page": "app/page.js",
+  "/hello-components/page": "app/hello-components/page.js",
+  "/hello-near/page": "app/hello-near/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js"
+>>>>>>> Stashed changes
 }

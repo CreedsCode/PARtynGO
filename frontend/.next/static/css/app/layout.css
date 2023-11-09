@@ -2079,9 +2079,12 @@ video {
     max-width: 1536px;
   }
 }
+<<<<<<< Updated upstream
 .visible {
   visibility: visible;
 }
+=======
+>>>>>>> Stashed changes
 .m-0 {
   margin: 0px;
 }
@@ -2097,10 +2100,13 @@ video {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
+<<<<<<< Updated upstream
 .my-10 {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
 }
+=======
+>>>>>>> Stashed changes
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -2119,6 +2125,7 @@ video {
 .mt-4 {
   margin-top: 1rem;
 }
+<<<<<<< Updated upstream
 .mb-1 {
   margin-bottom: 0.25rem;
 }
@@ -2131,6 +2138,8 @@ video {
 .mt-20 {
   margin-top: 5rem;
 }
+=======
+>>>>>>> Stashed changes
 .flex {
   display: flex;
 }
@@ -2140,24 +2149,31 @@ video {
 .hidden {
   display: none;
 }
+<<<<<<< Updated upstream
 .h-\[110px\] {
   height: 110px;
 }
+=======
+>>>>>>> Stashed changes
 .w-20 {
   width: 5rem;
 }
 .w-full {
   width: 100%;
 }
+<<<<<<< Updated upstream
 .w-1\/3 {
   width: 33.333333%;
 }
+=======
+>>>>>>> Stashed changes
 .max-w-4xl {
   max-width: 56rem;
 }
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
+<<<<<<< Updated upstream
 .grid-cols-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -2170,24 +2186,35 @@ video {
 .flex-row {
   flex-direction: row;
 }
+=======
+.grid-rows-2 {
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+>>>>>>> Stashed changes
 .flex-col {
   flex-direction: column;
 }
 .items-center {
   align-items: center;
 }
+<<<<<<< Updated upstream
 .justify-center {
   justify-content: center;
 }
+=======
+>>>>>>> Stashed changes
 .gap-2 {
   gap: 0.5rem;
 }
 .gap-4 {
   gap: 1rem;
 }
+<<<<<<< Updated upstream
 .gap-5 {
   gap: 1.25rem;
 }
+=======
+>>>>>>> Stashed changes
 .rounded {
   border-radius: 0.25rem;
 }
@@ -2197,6 +2224,7 @@ video {
 .rounded-md {
   border-radius: 0.375rem;
 }
+<<<<<<< Updated upstream
 .rounded-full {
   border-radius: 9999px;
 }
@@ -2217,6 +2245,8 @@ video {
   --tw-border-opacity: 1;
   border-color: rgb(234 179 8 / var(--tw-border-opacity));
 }
+=======
+>>>>>>> Stashed changes
 .bg-gray-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
@@ -2231,6 +2261,7 @@ video {
 .bg-white\/30 {
   background-color: rgb(255 255 255 / 0.3);
 }
+<<<<<<< Updated upstream
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
@@ -2263,12 +2294,15 @@ video {
 .to-blue-500 {
   --tw-gradient-to: #3b82f6 var(--tw-gradient-to-position);
 }
+=======
+>>>>>>> Stashed changes
 .p-2 {
   padding: 0.5rem;
 }
 .p-4 {
   padding: 1rem;
 }
+<<<<<<< Updated upstream
 .p-1 {
   padding: 0.25rem;
 }
@@ -2281,6 +2315,8 @@ video {
 .p-\[2px\] {
   padding: 2px;
 }
+=======
+>>>>>>> Stashed changes
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -2318,6 +2354,7 @@ video {
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
+<<<<<<< Updated upstream
 .text-5xl {
   font-size: 3rem;
   line-height: 1;
@@ -2330,6 +2367,8 @@ video {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
+=======
+>>>>>>> Stashed changes
 .font-bold {
   font-weight: 700;
 }
@@ -2340,9 +2379,12 @@ video {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+<<<<<<< Updated upstream
 .text-white\/80 {
   color: rgb(255 255 255 / 0.8);
 }
+=======
+>>>>>>> Stashed changes
 .underline {
   text-decoration-line: underline;
 }

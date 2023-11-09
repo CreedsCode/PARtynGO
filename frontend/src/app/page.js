@@ -25,12 +25,6 @@ export default function Home() {
           <h2 className="mt-10">join existing game</h2>
         </a>
       </div>
-
-      <div className="mt-20">
-        <HelloComponentsCard />
-        <HelloNearCard />
-        <DocsCard />
-      </div>
     </main>
   );
 }

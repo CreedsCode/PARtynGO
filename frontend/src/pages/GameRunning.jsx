@@ -14,103 +14,104 @@ const mockPredictions = [
   {
     title: "Snack Attack",
     description:
-      "can't resist opening every snack in the car within the first hour.",
+      "Can't resist opening every snack in the car within the first hour.",
     emoji: "🍿",
+    confirmed: true,
   },
   {
     title: "Navigation Novice",
-    description: "insists on navigating and gets the group slightly lost.",
+    description: "Insists on navigating and gets the group slightly lost.",
     emoji: "🧭",
+    needsConfirming: true,
   },
   {
     title: "Caffeine Connoisseur",
-    description: "demands pit stops for coffee at every service station.",
+    description: "Demands pit stops for coffee at every service station.",
     emoji: "☕",
   },
   {
     title: "Photo Frenzy",
-    description: "insists on taking selfies at every scenic spot.",
+    description: "Insists on taking selfies at every scenic spot.",
     emoji: "📸",
   },
   {
     title: "Restroom Roulette",
     description:
-      "has to use the bathroom right after the car gets back on the highway.",
+      "Has to use the bathroom right after the car gets back on the highway.",
     emoji: "🚽",
   },
   {
     title: "Gas Gauge Gambler",
-    description: "lets the fuel run dangerously low claiming, 'I know my car.'",
+    description: "Lets the fuel run dangerously low claiming, 'I know my car.'",
     emoji: "⛽",
   },
   {
     title: "License Plate Bingo",
     description:
-      "spots out-of-state license plates and shouts them out excitedly.",
+      "Spots out-of-state license plates and shouts them out excitedly.",
     emoji: "🚗",
   },
   {
     title: "Car DJ",
-    description: "keeps switching the music tracks halfway through.",
+    description: "Keeps switching the music tracks halfway through.",
     emoji: "🎶",
   },
   {
-    title: "Roadside Attraction Advocate",
-    description: "pleads to stop at every kitschy roadside attraction.",
+    title: "Roadside Attraction",
+    description: "Pleads to stop at every kitschy roadside attraction.",
     emoji: "🗺️",
   },
   {
     title: "Pit Stop Pro",
-    description: "is the quickest during restroom and snack breaks.",
+    description: "Is the quickest during restroom and snack breaks.",
     emoji: "⏱️",
   },
   {
     title: "Karaoke Kraziness",
-    description: "starts an impromptu karaoke session in the car.",
+    description: "Starts an impromptu karaoke session in the car.",
     emoji: "🎙️",
   },
   {
-    title: "Deep Thoughts Driver",
-    description: "gets philosophical, initiating deep conversations.",
+    title: "Deep Thoughts",
+    description: "Gets philosophical, initiating deep conversations.",
     emoji: "💭",
   },
   {
     title: "Sleepy Co-Pilot",
     description:
-      "falls asleep within minutes of their 'shift' as the designated co-pilot.",
+      "Falls asleep within minutes of their 'shift' as the designated co-pilot.",
     emoji: "😴",
   },
   {
-    title: "Stargazing Enthusiast",
-    description: "insists on stopping the car for a stargazing break at night.",
+    title: "Stargazer",
+    description: "Insists on stopping the car for a stargazing break at night.",
     emoji: "🌟",
   },
   {
     title: "Gadget Guru",
-    description:
-      "[Name]'s phone or camera battery dies from overuse before the first stop.",
+    description: "Their phone battery dies from overuse before the first stop.",
     emoji: "🔋",
   },
   {
     title: "Backseat Driver",
-    description: "gives unsolicited driving advice from the backseat.",
+    description: "Gives unsolicited driving advice from the backseat.",
     emoji: "🗣️",
   },
   {
     title: "Lunchtime Leader",
     description:
-      "decides on an unusual place for lunch, leading to a memorable meal.",
+      "Decides on an unusual place for lunch, leading to a memorable meal.",
     emoji: "🍽️",
   },
   {
     title: "Animal Spotter",
-    description: "gets overly excited about wildlife seen from the window.",
+    description: "Gets overly excited about wildlife seen from the window.",
     emoji: "🐾",
   },
   {
     title: "Memory Maker",
     description:
-      "insists on a group picture at every state or city sign crossed.",
+      "Insists on a group picture at every state or city sign crossed.",
     emoji: "📷",
   },
 ];
@@ -145,6 +146,8 @@ const modalVariants = {
 };
 
 const Modal = ({ isOpen, onClose, prediction }) => {
+  const [selectedPlayer, setSelectedPlayer] = useState(null);
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -183,7 +186,7 @@ const Modal = ({ isOpen, onClose, prediction }) => {
                     {prediction.description}
                   </p>
 
-                  <h2 className="my-5">Who did you spot doing this?</h2>
+                  <h2 className="my-10">Who did you spot doing this?</h2>
 
                   <motion.ul
                     className="grid grid-cols-2 gap-5 mt-10"
@@ -193,8 +196,18 @@ const Modal = ({ isOpen, onClose, prediction }) => {
                   >
                     {mockPlayers.map((player, index) => {
                       return (
-                        <motion.li key={index} variants={item}>
-                          <div className=" rounded-full bg-white/20 p-1">
+                        <motion.li
+                          key={index}
+                          variants={item}
+                          onClick={() => setSelectedPlayer(index)}
+                        >
+                          <div
+                            className={`font-bold rounded-full p-1 ${
+                              selectedPlayer === index
+                                ? " bg-orange-600"
+                                : " bg-white/20"
+                            }`}
+                          >
                             {player}
                           </div>
                         </motion.li>
@@ -202,7 +215,9 @@ const Modal = ({ isOpen, onClose, prediction }) => {
                     })}
                   </motion.ul>
 
-                  <button className="mt-10">Confirm</button>
+                  <button className="mt-10" disabled={!selectedPlayer}>
+                    Confirm
+                  </button>
                 </div>
               </div>
             </>
@@ -215,7 +230,15 @@ const Modal = ({ isOpen, onClose, prediction }) => {
 
 function BingoSquare({ prediction }) {
   return (
-    <div className="bg-black/50 p-3 rounded-xl h-[110px] flex flex-col items-center justify-center border-2 border-white/30">
+    <div
+      className={`p-3 rounded-xl h-[110px] flex flex-col items-center justify-center border-2 ${
+        prediction.confirmed
+          ? "bg-green-500/40 border-green-500 font-bold"
+          : `bg-black/50 ${
+              prediction.needsConfirming ? "border-yellow-500" : "border-none"
+            }`
+      }`}
+    >
       <p className="text-2xl mb-1">{prediction.emoji}</p>
       <p className="text-sm">{prediction.title}</p>
     </div>

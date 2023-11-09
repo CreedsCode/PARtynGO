@@ -26,16 +26,24 @@ export default function Home() {
 
       <h1 className={`${orbitron.variable}`}>PARTYNGO</h1>
 
-      <div className="w-full flex flex-col items-center justify-center  ">
+      <div className="w-full flex flex-col items-center justify-center px-10 ">
+        <h3 className="text-3xl text-white mt-20 font-bold">
+          Play, Predict, Party!
+        </h3>
+        <h3 className=" text-white/80 mt-5">
+          Going on an night out, roadtrip, or other event with friends? Predict
+          what will happen to win points, and a hilarious recap at the end!
+        </h3>
+
         <Link
           href="/game"
-          className="mt-10 w-2/3 p-2 text-2xl bg-white/10 rounded-full text-orange-400"
+          className="mt-12 w-[280px] p-2 text-2xl bg-white/10 rounded-full text-orange-400"
         >
           start new game
         </Link>
         <Link
           href="/game/join"
-          className="mt-10 w-2/3 p-2 text-2xl bg-white/10 rounded-full text-purple-400"
+          className="mt-8 w-[280px] p-2 text-2xl bg-white/10 rounded-full text-purple-400"
         >
           join existing game
         </Link>

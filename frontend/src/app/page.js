@@ -1,29 +1,23 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-
-import {
-  DocsCard,
-  HelloComponentsCard,
-  HelloNearCard,
-} from "@/components/cards";
-import react, {useState, useEffect } from "react";
+import { redirect } from "next/navigation";
+import react, { useState, useEffect } from "react";
 import { Orbitron } from "next/font/google";
 import Header from "@/components/Header";
 import { useWallet } from "@/wallets/wallet-selector";
 const orbitron = Orbitron({ subsets: ["latin"], variable: "--font-obitron" });
 
 export default function Home() {
-  const { signedAccountId, viewMethod, callMethod } = useWallet()
+  const { signedAccountId, viewMethod, callMethod } = useWallet();
   const [loggedIn, setLoggedIn] = useState(false);
-  
-  
+
   useEffect(() => {
     setLoggedIn(!!signedAccountId);
   }, [signedAccountId]);
- 
-  if(!loggedIn){
-    window.location.href="/login";
+
+  if (!loggedIn) {
+    redirect("/login");
   }
 
   return (

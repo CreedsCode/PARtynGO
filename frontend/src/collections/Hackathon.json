@@ -1,0 +1,82 @@
+[
+  {
+    "title": "Bug Squasher",
+    "description": "[Name] quickly debugs a teammate's code flawlessly."
+  },
+  {
+    "title": "API Wrangler",
+    "description": "[Name] successfully integrates a complex API on the first try."
+  },
+  {
+    "title": "All-Nighter",
+    "description": "[Name] pulls an all-nighter coding session."
+  },
+  {
+    "title": "Energy Drink Enthusiast",
+    "description": "[Name] consumes more energy drinks than anyone else."
+  },
+  {
+    "title": "The Influencer",
+    "description": "[Name] live-tweets the event, attracting attention from tech influencers."
+  },
+  {
+    "title": "Sticker Swag Collector",
+    "description": "[Name] covers their laptop in the most event stickers."
+  },
+  {
+    "title": "Code Mentor",
+    "description": "[Name] takes time to help out a newbie with coding basics."
+  },
+  {
+    "title": "The Salesman",
+    "description": "[Name] networks with every sponsor at the event."
+  },
+  {
+    "title": "Impromptu Presenter",
+    "description": "[Name] is roped into giving an unplanned demo to onlookers."
+  },
+  {
+    "title": "Pizza Predator",
+    "description": "[Name] is first in line when the pizza arrives and grabs the coveted first slice."
+  },
+  {
+    "title": "The Debugger",
+    "description": "[Name] finds a critical bug in someone else's project that they missed."
+  },
+  {
+    "title": "Caffeine Connoisseur",
+    "description": "[Name] critiques the coffee quality with expert attention to detail."
+  },
+  {
+    "title": "The Zen Coder",
+    "description": "[Name] remains unflappably calm amid the chaos of the hackathon."
+  },
+  {
+    "title": "The Napper",
+    "description": "[Name] takes a power nap and wakes up with a brilliant solution."
+  },
+  {
+    "title": "Wireframe Wizard",
+    "description": "[Name] sketches a perfect wireframe of the app on a napkin."
+  },
+  {
+    "title": "The Charmer",
+    "description": "[Name] smooth-talks their way into borrowing equipment the team needs."
+  },
+  {
+    "title": "Git Guru",
+    "description": "[Name] rescues the team from a near-disastrous git merge conflict."
+  },
+  {
+    "title": "Hackathon Historian",
+    "description": "[Name] documents the entire event with photos and detailed notes."
+  },
+  {
+    "title": "The Night Owl",
+    "description": "[Name] is the last one standing as the event wraps up."
+  },
+  {
+    "title": "Wildcard Winner",
+    "description": "[Name] implements a feature that was not in the original plan but becomes the highlight of the project."
+  }
+]

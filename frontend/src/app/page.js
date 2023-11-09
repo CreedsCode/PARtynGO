@@ -1,33 +1,32 @@
-import Image from 'next/image';
-import styles from './app.module.css';
-import { DocsCard, HelloComponentsCard, HelloNearCard } from '@/components/cards';
+import Image from "next/image";
+
+import {
+  DocsCard,
+  HelloComponentsCard,
+  HelloNearCard,
+} from "@/components/cards";
+
+import { Orbitron } from "next/font/google";
+import Header from "@/components/Header";
+const orbitron = Orbitron({ subsets: ["latin"], variable: "--font-obitron" });
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}> </div>
+    <main>
+      <Header />
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/near.svg"
-          alt="Next.js Logo"
-          width={110 * 1.5}
-          height={28 * 1.5}
-          priority
-        />
-        <h3 className="ms-2 me-3 text-dark"> + </h3>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={300 * .58}
-          height={61 * .58}
-          priority
-        />
+      <h1 className={`${orbitron.variable}`}>PARTYNGO</h1>
+
+      <div className="mt-10">
+        <a href="/createGame">
+          <h2>start new game</h2>
+        </a>
+        <a href="/JoinGame">
+          <h2 className="mt-10">join existing game</h2>
+        </a>
       </div>
 
-      <div className={styles.grid}>
+      <div className="mt-20">
         <HelloComponentsCard />
         <HelloNearCard />
         <DocsCard />

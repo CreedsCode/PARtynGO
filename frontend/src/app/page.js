@@ -18,7 +18,7 @@ export default function Home() {
       <h1 className={`${orbitron.variable}`}>PARTYNGO</h1>
 
       <div className="mt-10">
-        <a href="/createGame">
+        <a href="/game">
           <h2>start new game</h2>
         </a>
         <a href="/JoinGame">

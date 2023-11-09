@@ -235,7 +235,9 @@ function BingoSquare({ prediction }) {
         prediction.confirmed
           ? "bg-green-500/40 border-green-500 font-bold"
           : `bg-black/50 ${
-              prediction.needsConfirming ? "border-yellow-500" : "border-none"
+              prediction.needsConfirming
+                ? "border-yellow-500"
+                : "border-transparent"
             }`
       }`}
     >

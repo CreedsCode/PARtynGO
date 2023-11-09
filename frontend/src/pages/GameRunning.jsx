@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { redirect, useParams } from "react-router-dom";
 import Header from "../components/Header";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -267,6 +267,12 @@ export default function GameRunning() {
     toggleModal();
   }
 
+  function finishGame() {
+    console.log("Finishing game");
+    // submit to near
+    redirect(`/game/${gameID}/results`); // why not working?
+  }
+
   return (
     <>
       <Header />
@@ -293,6 +299,11 @@ export default function GameRunning() {
           ))}
         </motion.ul>
       </div>
+
+      <button onClick={finishGame} className="mt-10">
+        Finish Game
+      </button>
+
       <Modal
         isOpen={isModalOpen}
         onClose={toggleModal}

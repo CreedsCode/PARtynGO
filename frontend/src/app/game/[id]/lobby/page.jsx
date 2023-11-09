@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 
 import { useRouter } from "next/router";
 import { useParams } from "next/navigation";
+import Image from "next/image";
 
 export default function Lobby() {
   const { id } = useParams();
@@ -16,10 +17,15 @@ export default function Lobby() {
     <>
       <Header />
       <div className="container mx-auto px-3">
-        <h1 className="mt-3">LOBBY</h1>
+        <h1 className="mt-3">GAME NAME</h1>
         <div className="max-w-4xl w-full mt-10 rounded-2xl bg-white/10 backdrop-blur-2xl p-4">
-          <h2>Lobby code: {id}</h2>
-          <h2>Lobby name: 'we'</h2>
+          <h2 className="my-5">Send this link to your friends:</h2>
+
+          <div className="flex flex-row items-center justify-start mt-2 bg-black/50 text-purple-500 rounded px-4 py-3 font-bold">
+            <div className="flex-1 text-left">http://party.ngo/game/{id}</div>
+            <Image src="/copy.svg" width={20} height={20} />
+          </div>
+
           <br />
           <div className="mt-4">
             <h3 className="text-2xl font-semibold mb-2">Player List:</h3>
@@ -33,10 +39,8 @@ export default function Lobby() {
                 </li>
               ))}
             </ul>
-            <a href={`/game/${id}`}>
-              <button className="mt-4 bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 transition duration-300 ease-in-out">
-                Start Game
-              </button>
+            <a href={`/game/${id}/play`}>
+              <button>Let's go!</button>
             </a>
           </div>
         </div>

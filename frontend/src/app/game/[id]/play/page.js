@@ -117,6 +117,13 @@ const mockPredictions = [
   },
 ];
 
+function getRandomRecords(array, num) {
+  const shuffled = [...array].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, num);
+}
+
+const predictions = getRandomRecords(mockPredictions, 9);
+
 const mockPlayers = ["Olivier", "Seppa", "Dercio", "Daniel", "Owen"];
 
 // Animation stuff
@@ -216,9 +223,13 @@ const Modal = ({ isOpen, onClose, prediction }) => {
                     })}
                   </motion.ul>
 
-                  <button className="mt-10" disabled={!selectedPlayer}>
-                    Confirm
-                  </button>
+                  <div className="h-[80px]">
+                    {selectedPlayer && (
+                      <button className="mt-10" onClick={onClose}>
+                        Confirm
+                      </button>
+                    )}
+                  </div>
                 </div>
               </div>
             </>
@@ -248,11 +259,6 @@ function BingoSquare({ prediction }) {
   );
 }
 
-function getRandomRecords(array, num) {
-  const shuffled = [...array].sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, num);
-}
-
 export default function GameRunning({ params }) {
   let { gameID } = useParams();
 
@@ -260,8 +266,6 @@ export default function GameRunning({ params }) {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
-
-  const predictions = getRandomRecords(mockPredictions, 9);
 
   function select(prediction) {
     setSelectedPrediction(prediction);
@@ -301,9 +305,15 @@ export default function GameRunning({ params }) {
         </motion.ul>
       </div>
 
-      <button onClick={finishGame} className="mt-10">
+      <motion.button
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2, duration: 1 }} // 2 second delay, 1 second duration
+        onClick={finishGame}
+        className="mt-10"
+      >
         Finish Game
-      </button>
+      </motion.button>
 
       <Modal
         isOpen={isModalOpen}

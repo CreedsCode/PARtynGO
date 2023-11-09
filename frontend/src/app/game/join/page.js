@@ -22,10 +22,10 @@ export default function JoinGame() {
   return (
     <>
       <Header />
-      <div className="container mx-auto px-3">
+      <div className="container mx-auto px-3 max-w-4xl">
         <h1 className="mt-3">JOIN GAME</h1>
 
-        <div className="max-w-4xl w-full mt-10 rounded-2xl bg-white/10 backdrop-blur-2xl p-4">
+        <div className=" w-full mt-10 rounded-2xl bg-white/10 backdrop-blur-2xl p-4">
           <h2>Enter the game code to join!</h2>
           <br />
 

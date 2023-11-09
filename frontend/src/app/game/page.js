@@ -13,7 +13,7 @@ function CreateGameForm({ handleChange, gameName, generateLobbyCode }) {
       <div className="flex flex-row">
         <input
           type="text"
-          placeholder="Name"
+          placeholder="Big night out!"
           value={gameName}
           onChange={handleChange}
           className="bg-white/30 font-bold rounded-xl p-2 w-full mr-3 px-3"
@@ -30,17 +30,17 @@ function GameCreated({ lobbyCode, gameName }) {
   console.log("lobbyCode", lobbyCode);
   return (
     <>
-      <h2>Game created!</h2>
+      <h2>New game created!</h2>
       <br />
       <Link href={`/game/${lobbyCode}/lobby?name=${gameName}`}>
-        Join the lobby!
+        <button>Join the lobby!</button>
       </Link>
     </>
   );
 }
 
 export default function CreateGame() {
-  const [gameName, setGameName] = useState("big night out");
+  const [gameName, setGameName] = useState("");
   const [lobbyCode, setLobbyCode] = useState(""); // Add lobbyCode state
 
   const handleChange = (event) => {

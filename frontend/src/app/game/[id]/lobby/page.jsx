@@ -28,7 +28,8 @@ export default function Lobby() {
 
           <br />
           <div className="mt-4">
-            <h3 className="text-2xl font-semibold mb-2">Player List:</h3>
+            <h3 className="text-xl font-semibold mb-2">Who's playing:</h3>
+            <br />
             <ul className="grid grid-cols-2 gap-2">
               {playerNames.map((player, index) => (
                 <li
@@ -39,6 +40,7 @@ export default function Lobby() {
                 </li>
               ))}
             </ul>
+            <br />
             <a href={`/game/${id}/play`}>
               <button>Let's go!</button>
             </a>

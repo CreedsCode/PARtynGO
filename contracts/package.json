@@ -13,11 +13,12 @@
     "postinstall": "cd sandbox-ts && $npm_execpath i"
   },
   "dependencies": {
+    "@near-wallet-selector/wallet-connect": "^8.7.1",
     "near-cli": "^3.4.2",
     "near-sdk-js": "1.0.0"
   },
   "devDependencies": {
-    "typescript": "^5.2.2",
-    "ts-morph": "^20.0.0"
+    "ts-morph": "^20.0.0",
+    "typescript": "^5.2.2"
   }
 }

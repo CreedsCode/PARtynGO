@@ -5,7 +5,7 @@ import { setupWalletSelector } from '@near-wallet-selector/core';
 import { setupModal } from '@near-wallet-selector/modal-ui';
 import { setupMyNearWallet } from '@near-wallet-selector/my-near-wallet';
 import { setupHereWallet } from '@near-wallet-selector/here-wallet';
-
+import {setupWalletConnect} from "@near-wallet-selector/wallet-connect"
 import { useEffect, useState } from 'react';
 
 export const useWallet = createStore(set => ({
@@ -31,7 +31,7 @@ export function useInitWallet({ createAccessKeyFor, networkId }) {
   useEffect(() => {
     const selector = setupWalletSelector({
       network: networkId,
-      modules: [setupMyNearWallet(), setupHereWallet()]
+      modules: [setupMyNearWallet(), setupHereWallet(), setupWalletConnect({projectId:process.env.WC})]
     });
 
     setSelector(selector);

@@ -27,3 +27,6 @@ dist-ssr
 
 frontend/.next/**
 frontend/.vercel/**
+contracts/build/**
+dev-account
+dev-account.env

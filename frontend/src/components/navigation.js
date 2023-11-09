@@ -20,15 +20,16 @@ export const Navigation = () => {
   }, [signedAccountId, logOut, logIn, setAction, setLabel]);
 
   return (
-    <nav className="navbar navbar-expand-lg">
-      <div className="container-fluid">
-        <div className="navbar-nav pt-1">
-          <button className="btn btn-secondary" onClick={action}>
-            {" "}
-            {label}{" "}
-          </button>
-        </div>
-      </div>
-    </nav>
+    // <nav className="navbar navbar-expand-lg">
+    //   <div className="container-fluid">
+    //     <div className="navbar-nav pt-1">
+    //       <button className="btn btn-secondary" onClick={action}>
+    //         {" "}
+    //         {label}{" "}
+    //       </button>
+    //     </div>
+    //   </div>
+    // </nav>
+    <div></div>
   );
 };

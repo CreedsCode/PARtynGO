@@ -10,9 +10,10 @@ const CONTRACT = HelloNearContract[NetworkId];
 
 export default function HelloNear() {
   const { signedAccountId, viewMethod, callMethod } = useWallet();
+  const [loggedIn, setLoggedIn] = useState(false);
+  
 
   const [greeting, setGreeting] = useState('loading...');
-  const [loggedIn, setLoggedIn] = useState(false);
   const [showSpinner, setShowSpinner] = useState(false);
 
   useEffect(() => {

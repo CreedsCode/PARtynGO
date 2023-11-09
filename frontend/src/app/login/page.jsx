@@ -1,8 +1,11 @@
 "use client";
 import react, { useState } from "react";
 import Header from "@/components/header/Header";
+import { useWallet } from "@/wallets/wallet-selector";
 
 export default function Login() {
+  const { signedAccountId, logOut, logIn } = useWallet();
+
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [signInUsername, setSignInUsername] = useState("");
@@ -11,9 +14,10 @@ export default function Login() {
   const [showSignIn, setShowSignIn] = useState(false);
 
   const handleLogin = () => {
-    if (loginUsername && loginPassword) {
-      setLoggedIn(true);
-    }
+    // if (loginUsername && loginPassword) {
+    //   setLoggedIn(true);
+    // }
+    logIn();
   };
 
   const handleSignIn = () => {
@@ -34,7 +38,7 @@ export default function Login() {
           ) : (
             <div>
               <div className="my-8 grid grid-cols-2 grid-rows-2 gap-4">
-                <label>Username:</label>
+                {/* <label>Username:</label>
                 <input
                   type="text"
                   value={loginUsername}
@@ -50,11 +54,11 @@ export default function Login() {
                   onChange={(e) => setLoginPassword(e.target.value)}
                   className="bg-white/30 text-white w-full rounded px-3 py-1"
                   placeholder="password"
-                />
+                /> */}
               </div>
 
               <button onClick={handleLogin}>Login</button>
-              <button onClick={() => setShowSignIn(true)}>Sign In</button>
+              {/* <button onClick={() => setShowSignIn(true)}>Sign In</button> */}
             </div>
           )}
 

@@ -17,7 +17,7 @@ export default function Home() {
   }, [signedAccountId]);
 
   if (!loggedIn) {
-    redirect("/login");
+    //redirect("/login");
   }
 
   return (

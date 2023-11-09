@@ -27,6 +27,7 @@ function CreateGameForm({ handleChange, gameName, generateLobbyCode }) {
 }
 
 function GameCreated({ lobbyCode, gameName }) {
+  console.log("lobbyCode", lobbyCode);
   return (
     <>
       <h2>Game created!</h2>
@@ -60,13 +61,13 @@ export default function CreateGame() {
 
         <div className="w-full mt-10 rounded-2xl bg-white/10 backdrop-blur-2xl p-4">
           {lobbyCode ? (
+            <GameCreated lobbyCode={lobbyCode} gameName={gameName} />
+          ) : (
             <CreateGameForm
               handleChange={handleChange}
               gameName={gameName}
               generateLobbyCode={generateLobbyCode}
             />
-          ) : (
-            <GameCreated lobbyCode={lobbyCode} gameName={gameName} />
           )}
         </div>
       </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import Header from "../components/Header";
+import { motion } from "framer-motion";
 
 const mockPredictions = [
   {
@@ -117,6 +118,27 @@ const mockPredictions = [
   },
 ];
 
+// Animation stuff
+const container = {
+  hidden: { opacity: 1, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delayChildren: 0.2,
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const item = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
+};
+
 function BingoSquare({ square }) {
   return (
     <div className="bg-black/50 p-3 rounded-xl h-[110px] flex flex-col items-center justify-center border-2 border-white/30">
@@ -142,11 +164,18 @@ export default function GameRunning() {
       <div className="container mx-auto px-4">
         <h1>SF Summer Roadtrip</h1>
 
-        <div className="grid grid-cols-3 grid-rows-3 gap-4 mt-10">
-          {squares.map((square) => (
-            <BingoSquare square={square} />
+        <motion.ul
+          className="grid grid-cols-3 grid-rows-3 gap-4 mt-10"
+          variants={container}
+          initial="hidden"
+          animate="visible"
+        >
+          {squares.map((square, index) => (
+            <motion.li key={index} variants={item} className="item">
+              <BingoSquare square={square} />
+            </motion.li>
           ))}
-        </div>
+        </motion.ul>
       </div>
     </>
   );

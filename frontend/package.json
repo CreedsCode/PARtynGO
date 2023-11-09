@@ -12,6 +12,8 @@
   "dependencies": {
     "ai": "^2.2.21",
     "autoprefixer": "^10.4.16",
+    "framer": "^2.4.1",
+    "framer-motion": "^10.16.4",
     "openai": "^4.16.1",
     "openai-edge": "^1.2.2",
     "postcss": "^8.4.31",

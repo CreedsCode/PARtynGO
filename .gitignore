@@ -25,5 +25,5 @@ dist-ssr
 .env
 .next
 
-frontend/.next/*
-frontend/.vercel/*
+frontend/.next/**
+frontend/.vercel/**

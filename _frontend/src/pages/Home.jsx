@@ -15,6 +15,10 @@ function Home() {
       git merge newvvv
       <a href="/createGame">
         <h2>start new game</h2>
+      
+      </a>
+      <a href="/JoinGame">
+        <h2 style={{ marginTop: "50px" }}>Join existing game</h2>
       </a>
     </>
   );

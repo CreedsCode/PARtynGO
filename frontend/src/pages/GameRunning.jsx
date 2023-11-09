@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import Header from "../components/Header";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+
+import "./Modal.css";
 
 const mockPredictions = [
   {
@@ -130,7 +132,6 @@ const container = {
     },
   },
 };
-
 const item = {
   hidden: { y: 20, opacity: 0 },
   visible: {
@@ -139,11 +140,47 @@ const item = {
   },
 };
 
-function BingoSquare({ square }) {
+// Modal Stuff
+const modalVariants = {
+  hidden: { opacity: 0, y: "-100vh" },
+  visible: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: "100vh" },
+};
+
+const Modal = ({ isOpen, onClose, prediction }) => {
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          className="modal-backdrop "
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          variants={modalVariants}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        >
+          <motion.div
+            className="modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button onClick={onClose} className="close-button">
+              x
+            </button>
+
+            <p className="text-4xl mb-1">{prediction.emoji}</p>
+            <p className="text-xl">{prediction.title}</p>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
+
+function BingoSquare({ prediction }) {
   return (
     <div className="bg-black/50 p-3 rounded-xl h-[110px] flex flex-col items-center justify-center border-2 border-white/30">
-      <p className="text-2xl mb-1">{square.emoji}</p>
-      <p className="text-sm">{square.title}</p>
+      <p className="text-2xl mb-1">{prediction.emoji}</p>
+      <p className="text-sm">{prediction.title}</p>
     </div>
   );
 }
@@ -156,7 +193,17 @@ function getRandomRecords(array, num) {
 export default function GameRunning() {
   let { gameID } = useParams();
 
-  const squares = getRandomRecords(mockPredictions, 9);
+  const [selectedPrediction, setSelectedPrediction] = useState(null);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const toggleModal = () => setIsModalOpen(!isModalOpen);
+
+  const predictions = getRandomRecords(mockPredictions, 9);
+
+  function select(prediction) {
+    setSelectedPrediction(prediction);
+    toggleModal();
+  }
 
   return (
     <>
@@ -170,13 +217,25 @@ export default function GameRunning() {
           initial="hidden"
           animate="visible"
         >
-          {squares.map((square, index) => (
-            <motion.li key={index} variants={item} className="item">
-              <BingoSquare square={square} />
+          {predictions.map((prediction, index) => (
+            <motion.li
+              key={index}
+              variants={item}
+              className="item"
+              onClick={() => {
+                select(prediction);
+              }}
+            >
+              <BingoSquare prediction={prediction} />
             </motion.li>
           ))}
         </motion.ul>
       </div>
+      <Modal
+        isOpen={isModalOpen}
+        onClose={toggleModal}
+        prediction={selectedPrediction}
+      />
     </>
   );
 }

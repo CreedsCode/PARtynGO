@@ -1,0 +1,51 @@
+.modal-backdrop {
+  /* Cover the full screen */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  /* Center the modal content vertically and horizontally */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Higher z-index so that the backdrop is above other content */
+  z-index: 10;
+}
+
+.modal-content {
+  /* The modal itself */
+  background-color: #151525;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+  /* A fixed size or maximum size */
+  width: 500px; /* or max-width for responsiveness */
+  max-width: 90%; /* Responsive max-width */
+
+  /* Optional: Internal scrolling */
+  overflow-y: auto;
+  max-height: 90vh;
+
+  /* Optional: Animation-related properties */
+  will-change: transform, opacity; /* for performance optimization */
+
+  box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5);
+}
+
+/* Optional: Add a close button inside the modal content */
+.modal-content .close-button {
+  /* Style the close button */
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  /* Optional: Add an 'X' with pseudo-element or use an image/svg */
+  font-size: 1.5em;
+}

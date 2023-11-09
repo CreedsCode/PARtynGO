@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import {
   DocsCard,
@@ -17,13 +18,19 @@ export default function Home() {
 
       <h1 className={`${orbitron.variable}`}>PARTYNGO</h1>
 
-      <div className="mt-10">
-        <a href="/game">
-          <h2>start new game</h2>
-        </a>
-        <a href="/game/join">
-          <h2 className="mt-10">join existing game</h2>
-        </a>
+      <div className="w-full flex flex-col items-center justify-center  ">
+        <Link
+          href="/game"
+          className="mt-10 w-2/3 p-2 text-2xl bg-white/10 rounded-full text-orange-400"
+        >
+          start new game
+        </Link>
+        <Link
+          href="/game/join"
+          className="mt-10 w-2/3 p-2 text-2xl bg-white/10 rounded-full text-purple-400"
+        >
+          join existing game
+        </Link>
       </div>
     </main>
   );

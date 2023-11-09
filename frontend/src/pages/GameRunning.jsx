@@ -8,85 +8,81 @@ import "./Modal.css";
 const mockPredictions = [
   {
     title: "Sing-Along Star",
-    description: "[Name] belts out every song on the radio, even the ads.",
+    description: "Belts out every song on the radio, even the ads.",
     emoji: "🎤",
   },
   {
     title: "Snack Attack",
     description:
-      "[Name] can't resist opening every snack in the car within the first hour.",
+      "can't resist opening every snack in the car within the first hour.",
     emoji: "🍿",
   },
   {
     title: "Navigation Novice",
-    description:
-      "[Name] insists on navigating and gets the group slightly lost.",
+    description: "insists on navigating and gets the group slightly lost.",
     emoji: "🧭",
   },
   {
     title: "Caffeine Connoisseur",
-    description:
-      "[Name] demands pit stops for coffee at every service station.",
+    description: "demands pit stops for coffee at every service station.",
     emoji: "☕",
   },
   {
     title: "Photo Frenzy",
-    description: "[Name] insists on taking selfies at every scenic spot.",
+    description: "insists on taking selfies at every scenic spot.",
     emoji: "📸",
   },
   {
     title: "Restroom Roulette",
     description:
-      "[Name] has to use the bathroom right after the car gets back on the highway.",
+      "has to use the bathroom right after the car gets back on the highway.",
     emoji: "🚽",
   },
   {
     title: "Gas Gauge Gambler",
-    description:
-      "[Name] lets the fuel run dangerously low claiming, 'I know my car.'",
+    description: "lets the fuel run dangerously low claiming, 'I know my car.'",
     emoji: "⛽",
   },
   {
     title: "License Plate Bingo",
     description:
-      "[Name] spots out-of-state license plates and shouts them out excitedly.",
+      "spots out-of-state license plates and shouts them out excitedly.",
     emoji: "🚗",
   },
   {
     title: "Car DJ",
-    description: "[Name] keeps switching the music tracks halfway through.",
+    description: "keeps switching the music tracks halfway through.",
     emoji: "🎶",
   },
   {
     title: "Roadside Attraction Advocate",
-    description: "[Name] pleads to stop at every kitschy roadside attraction.",
+    description: "pleads to stop at every kitschy roadside attraction.",
     emoji: "🗺️",
   },
   {
     title: "Pit Stop Pro",
-    description: "[Name] is the quickest during restroom and snack breaks.",
+    description: "is the quickest during restroom and snack breaks.",
     emoji: "⏱️",
   },
   {
     title: "Karaoke Kraziness",
-    description: "[Name] starts an impromptu karaoke session in the car.",
+    description: "starts an impromptu karaoke session in the car.",
     emoji: "🎙️",
   },
   {
     title: "Deep Thoughts Driver",
-    description: "[Name] gets philosophical, initiating deep conversations.",
+    description: "gets philosophical, initiating deep conversations.",
     emoji: "💭",
   },
   {
     title: "Sleepy Co-Pilot",
     description:
-      "[Name] falls asleep within minutes of their 'shift' as the designated co-pilot.",
+      "falls asleep within minutes of their 'shift' as the designated co-pilot.",
     emoji: "😴",
   },
   {
     title: "Stargazing Enthusiast",
-    description:
-      "[Name] insists on stopping the car for a stargazing break at night.",
+    description: "insists on stopping the car for a stargazing break at night.",
     emoji: "🌟",
   },
   {
@@ -97,28 +93,29 @@ const mockPredictions = [
   },
   {
     title: "Backseat Driver",
-    description: "[Name] gives unsolicited driving advice from the backseat.",
+    description: "gives unsolicited driving advice from the backseat.",
     emoji: "🗣️",
   },
   {
     title: "Lunchtime Leader",
     description:
-      "[Name] decides on an unusual place for lunch, leading to a memorable meal.",
+      "decides on an unusual place for lunch, leading to a memorable meal.",
     emoji: "🍽️",
   },
   {
     title: "Animal Spotter",
-    description:
-      "[Name] gets overly excited about wildlife seen from the window.",
+    description: "gets overly excited about wildlife seen from the window.",
     emoji: "🐾",
   },
   {
     title: "Memory Maker",
     description:
-      "[Name] insists on a group picture at every state or city sign crossed.",
+      "insists on a group picture at every state or city sign crossed.",
     emoji: "📷",
   },
 ];
+
+const mockPlayers = ["Olivier", "Seppa", "Dercio", "Daniel", "Owen"];
 
 // Animation stuff
 const container = {
@@ -163,12 +160,52 @@ const Modal = ({ isOpen, onClose, prediction }) => {
             className="modal-content"
             onClick={(e) => e.stopPropagation()}
           >
-            <button onClick={onClose} className="close-button">
-              x
-            </button>
+            <>
+              <div className="bg-gradient-to-r from-orange-400 via-pink-500 to-blue-500 p-[2px] rounded-2xl">
+                <div className="bg-black p-9 rounded-2xl">
+                  <motion.img
+                    src="/close.svg"
+                    className="close-button p-2"
+                    alt="Close"
+                    width="32"
+                    height="32"
+                    animate={{
+                      opacity: [0, 0.3, 0.8],
+                      scale: [0, 1.2, 1],
+                      rotate: [0, 270, 0],
+                    }}
+                    onClick={onClose}
+                  />
 
-            <p className="text-4xl mb-1">{prediction.emoji}</p>
-            <p className="text-xl">{prediction.title}</p>
+                  <p className="text-5xl mb-1">{prediction.emoji}</p>
+                  <p className="text-xl font-bold">{prediction.title}</p>
+                  <p className="text-sm text-white/80 mt-2">
+                    {prediction.description}
+                  </p>
+
+                  <h2 className="my-5">Who did you spot doing this?</h2>
+
+                  <motion.ul
+                    className="grid grid-cols-2 gap-5 mt-10"
+                    variants={container}
+                    initial="hidden"
+                    animate="visible"
+                  >
+                    {mockPlayers.map((player, index) => {
+                      return (
+                        <motion.li key={index} variants={item}>
+                          <div className=" rounded-full bg-white/20 p-1">
+                            {player}
+                          </div>
+                        </motion.li>
+                      );
+                    })}
+                  </motion.ul>
+
+                  <button className="mt-10">Confirm</button>
+                </div>
+              </div>
+            </>
           </motion.div>
         </motion.div>
       )}

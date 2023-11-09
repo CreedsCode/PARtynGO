@@ -17,8 +17,6 @@
 
 .modal-content {
   /* The modal itself */
-  background-color: #151525;
-  padding: 20px;
   border-radius: 5px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 
@@ -48,4 +46,10 @@
 
   /* Optional: Add an 'X' with pseudo-element or use an image/svg */
   font-size: 1.5em;
+
+  top: 20px;
+  right: 20px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
 }

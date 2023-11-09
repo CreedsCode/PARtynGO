@@ -1,12 +1,19 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 import Header from "../components/Header";
 
 export default function CreateGame() {
   const [gameName, setGameName] = useState("big night out");
+  const [lobbyCode, setLobbyCode] = useState(""); // Add lobbyCode state
 
   const handleChange = (event) => {
     setGameName(event.target.value);
+  };
+
+  const generateLobbyCode = () => {
+    const code = Math.random().toString(36).substr(2, 6).toUpperCase();
+    setLobbyCode(code);
   };
 
   return (
@@ -27,10 +34,21 @@ export default function CreateGame() {
               onChange={handleChange}
               className="bg-white/30 font-bold rounded-xl p-2 w-full mr-3 px-3"
             />
-            <button className="text-white">create</button>
+            <button onClick={generateLobbyCode} className="text-white">
+              Create
+            </button>
           </div>
+
+          {lobbyCode && (
+            <div>
+              <p>Lobby Code: {lobbyCode}</p>
+              {/* Pass the lobbyCode as a query parameter to the Lobby component */}
+              <Link to={`/lobby?code=${lobbyCode}&name=${gameName}`}>Go to Lobby</Link>
+            </div>
+          )}
         </div>
       </div>
     </>
   );
 }
+

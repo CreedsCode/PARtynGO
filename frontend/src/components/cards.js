@@ -2,7 +2,6 @@ export const DocsCard = () => {
   return (
     <a
       href="https://docs.near.org/develop/integrate/quickstart-frontend"
-      className={styles.card}
       target="_blank"
       rel="noopener noreferrer"
     >
@@ -16,7 +15,7 @@ export const DocsCard = () => {
 
 export const HelloNearCard = () => {
   return (
-    <a href="/hello-near" className={styles.card} rel="noopener noreferrer">
+    <a href="/hello-near" rel="noopener noreferrer">
       <h2>
         Near Integration <span>-&gt;</span>
       </h2>
@@ -27,11 +26,7 @@ export const HelloNearCard = () => {
 
 export const HelloComponentsCard = () => {
   return (
-    <a
-      href="/hello-components"
-      className={styles.card}
-      rel="noopener noreferrer"
-    >
+    <a href="/hello-components" rel="noopener noreferrer">
       <h2>
         Web3 Components <span>-&gt;</span>
       </h2>

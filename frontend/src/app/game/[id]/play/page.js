@@ -1,5 +1,6 @@
 "use client";
-import React, { useState } from "react";
+
+import React, { useState, useEffect } from "react";
 import { redirect, useParams } from "react-router-dom";
 import Header from "@/components/Header";
 import { motion, AnimatePresence } from "framer-motion";
@@ -241,6 +242,12 @@ const Modal = ({ isOpen, onClose, prediction }) => {
 };
 
 function BingoSquare({ prediction }) {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
     <div
       className={`p-3 rounded-xl h-[110px] flex flex-col items-center justify-center border-2 ${

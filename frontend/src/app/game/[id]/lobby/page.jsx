@@ -28,7 +28,7 @@ export default function Lobby() {
 
           <br />
           <div className="mt-4">
-            <h3 className="text-xl font-semibold mb-2">Who's playing:</h3>
+            <h3 className="text-xl font-semibold mb-2">Who's joined:</h3>
             <br />
             <ul className="grid grid-cols-2 gap-2">
               {playerNames.map((player, index) => (

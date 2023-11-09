@@ -41,12 +41,6 @@ export default function Home() {
         >
           start new game
         </Link>
-        <Link
-          href="/game/join"
-          className="mt-8 w-[280px] p-2 text-2xl bg-white/10 rounded-full text-purple-400"
-        >
-          join existing game
-        </Link>
       </div>
     </main>
   );

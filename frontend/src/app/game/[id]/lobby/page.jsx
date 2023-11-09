@@ -17,7 +17,7 @@ export default function Lobby() {
     <>
       <Header />
       <div className="container mx-auto px-3">
-        <h1 className="mt-3">GAME NAME</h1>
+        <h1 className="mt-3">SAN FRAN ROADTRIP</h1>
         <div className="max-w-4xl w-full mt-10 rounded-2xl bg-white/10 backdrop-blur-2xl p-4">
           <h2 className="my-5">Send this link to your friends:</h2>
 

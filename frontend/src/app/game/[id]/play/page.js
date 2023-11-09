@@ -279,17 +279,11 @@ export default function GameRunning({ params }) {
     toggleModal();
   }
 
-  function finishGame() {
-    console.log("Finishing game");
-    // submit to near
-    redirect(`/game/${gameID}/results`); // why not working?
-  }
-
   return (
     <>
       <Header />
       <div className="container mx-auto px-4">
-        <h1>SF Summer Roadtrip</h1>
+        <h1>SAN FRAN ROADTRIP</h1>
 
         <motion.ul
           className="grid grid-cols-3 grid-rows-3 gap-4 mt-10"
@@ -316,10 +310,9 @@ export default function GameRunning({ params }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }} // 2 second delay, 1 second duration
-        onClick={finishGame}
-        className="mt-10"
+        className="my-10"
       >
-        Finish Game
+        <a href={`/game/${gameID}/results`}>Finish Game</a>
       </motion.button>
 
       <Modal
